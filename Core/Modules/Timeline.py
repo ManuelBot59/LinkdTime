@@ -14,7 +14,6 @@ class CREATE:
     @staticmethod
     def Create_Timeline(name):
         date = datetime.datetime.now()
-        name = name + ".txt"
         f = open(name,"w")
         f.write("----------------------------------------------\n")
         f.write("| Created with LinkdTime                     |\n")

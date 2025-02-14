@@ -66,6 +66,7 @@ class MAIN:
                             timel_name = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Timeline name" + "\n\n" + Colors.Color.PURPLE2 + "[-Timeline-]" + Colors.Color.WHITE + "-->"))
                         string = string.replace(" timeline","timeline")
                         folder = string.split("timeline",1)[1].split(" ",1)[1].split(" ",1)[0]
+                        timel_name = timel_name + ".txt"
                         Timeline.CREATE.Timeline(folder,timel_name,auto)
                     else:
                         MAIN.Scan(string,"None","","","")
