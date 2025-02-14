@@ -1,5 +1,12 @@
 <p align = "center"><img src = "Banner/Banner.png" ></p>
-
+<p align = "center">
+  <img src = "https://img.shields.io/github/stars/Lucksi/LinkdTime">
+  <img src = "https://img.shields.io/github/forks/Lucksi/LinkdTime">
+  <img src = "https://img.shields.io/badge/Maintained%3F-yes-green.svg">
+  <img src = "https://img.shields.io/github/license/Lucksi/LinkdTime">
+  <img src = "https://img.shields.io/github/repo-size/Lucksi/LinkdTime">
+  <img src= "https://img.shields.io/github/languages/count/Lucksi/LinkdTime">
+</p>
 
 ## Introduction
 
