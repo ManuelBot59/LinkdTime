@@ -52,7 +52,7 @@ python3 main.py
 | ------------- | ------------- | -------------|
 | `timeline`  | Create a timeline from a group of activities| timeline test.txt |
 | `--autoname`  | Generate a default name for each element in the timeline | timeline test.txt --autoname |
-| `--timezone`  | Set a Timezone for the the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone |
+| `--timezone`  | Set a Timezone for the the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
 
 ## Autoname Default element name example:
 ```bash
