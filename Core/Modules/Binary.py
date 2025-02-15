@@ -10,11 +10,15 @@ class GET:
         if type != "image":
             if type == "post":
                 string = string.replace("_","")
-                first = string.split("activity-")
+                if "activity-" in string:
+                    first = string.split("activity-")
+                if "ugcPost-":
+                    first = string.split("ugcPost-")
                 second = first[1].rsplit("-",1)[0].lstrip().rstrip()
                 count_char = second.count("-")
                 if count_char >= 1:
                     second = second.rsplit("-",count_char)[0]
+                print(second)
             elif type == "comment":
                 count = string.count("fsd_comment%3A%28")
                 first = string.split("fsd_comment%3A%28",count)
