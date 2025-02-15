@@ -19,6 +19,8 @@ class GET:
             hours_t = int(hours_t)
             if "+" in timezone:
                 hours_t = hours_t - 2
+            elif "-" in timezone:
+                hours_t = hours_t + 2
             zone = timedelta(hours=hours_t,minutes=int(minute_t))
             if "+" in timezone:
                 intial = intial + zone
