@@ -13,7 +13,7 @@ class GET:
         try:
             first = f_string.replace("/"," ",char_count-1)
             user = first.rsplit("/",1)[1].rstrip().lstrip()
-            if "urn:li:activity" in user:
+            if "urn:li:" in user:
                 user = ""
             else:
                 user = user
