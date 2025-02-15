@@ -35,7 +35,7 @@ python3 main.py
 | Windows | ❌ |
 
 
-## Supported Activities:
+## Recognized Activities:
 | Name
 | -------------
 | `Posts` 
