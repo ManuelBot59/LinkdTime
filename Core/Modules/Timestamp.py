@@ -4,11 +4,13 @@
 # License: GNU General Public License v3.0
 
 from datetime import datetime,timedelta
+from Core.Utils import Format
 
 class GET:
     
     @staticmethod
     def Date(timestamp,timezone):
+        date_format = Format.GET.Date_format()
         timestamp = float(timestamp)
         timestamp = timestamp/1000
         intial = datetime.fromtimestamp(timestamp)
@@ -26,5 +28,5 @@ class GET:
                 intial = intial + zone
             elif "-" in timezone:
                 intial = intial - zone
-        formatted = intial.strftime("%Y-%m-%d %H:%M:%S")
+        formatted = intial.strftime(date_format)
         return formatted

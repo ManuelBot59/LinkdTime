@@ -44,6 +44,15 @@ python3 main.py
 | `Profile-Pictures Changes`
 | `Company-Logo Changes`
 
+## Date Format Configuration:
+**For Changing the displayed dateformat you can change it on the file Configuration/Configuration.ini (Default value is the European format)**
+
+| Name  | Description | Format |
+| -------------| ------------- |--------|
+| `Eu`         | European Date Format | DD/MM/YYYY
+| `Us`         | American Date Format | MM/DD/YYYY
+| `As`         | Asian Date Format     | YYYY/MM/DD
+
 
 
 ## Advanced Commands:
