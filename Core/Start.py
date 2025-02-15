@@ -23,7 +23,7 @@ class MAIN:
             if "posts" in string:
                 param = "Post"
                 binary_string = Binary.GET.Format(string,"post")
-            elif "comment" in string:
+            elif "commentUrn" in string:
                 if "reply" in string:
                     param = "Comment/Reply"
                 else:
