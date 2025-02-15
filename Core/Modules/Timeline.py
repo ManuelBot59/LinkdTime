@@ -34,7 +34,10 @@ class CREATE:
             if users[orig_index] != "":
                 f.write("Author: {}\r\n".format(users[orig_index]))
             f.write("Type: {}\r\n".format(types[orig_index]))
-            f.write("Posted on date: {} GMT+2\r\n".format(element))
+            if types[orig_index] == "Profile-Picture" or type[orig_index] == "Company-Logo":
+                f.write("Added on date: {} GMT+2\r\n".format(element))
+            else:
+                f.write("Posted on date: {} GMT+2\r\n".format(element))
             f.write("Url: {}\r\n\n".format(reader[orig_index].lstrip().rstrip()))
             j = j + 1
         f.close()
@@ -86,7 +89,10 @@ class CREATE:
                 if users[orig_index] != "":
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Author: {}".format(Colors.Color.GREEN + users[orig_index]))
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE +  "Type: {}".format(Colors.Color.GREEN + types[orig_index]))
-                print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Posted on date: {} GMT+2".format(Colors.Color.GREEN + element))
+                if types[orig_index] == "Profile-Picture" or type[orig_index] == "Company-Logo":
+                    print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Added on date: {} GMT+2".format(Colors.Color.GREEN + element))
+                else:
+                    print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Posted on date: {} GMT+2".format(Colors.Color.GREEN + element))
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Url: {}\n".format(Colors.Color.GREEN + reader[orig_index].lstrip().rstrip()))
                 j = j + 1
             CREATE.Write_Timeline(users,conversion,ordinated,types,titles,reader,timel_name,fixed_earliest,fixed_latest)

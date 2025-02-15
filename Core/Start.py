@@ -15,7 +15,7 @@ class MAIN:
 
     @staticmethod
     def Scan(string,timeline,users,conversions,types):
-        if string.startswith("https://www.linkedin.com") == False:
+        if string.startswith("https://www.linkedin.com") == False and string.startswith("https://media.licdn.com") == False:
             print(Colors.Color.RED + "\n[!]" + Colors.Color.WHITE + "Please insert a Linkedin link")
             MAIN.String(2)
         else:
@@ -29,18 +29,30 @@ class MAIN:
                 else:
                     param = "Comment"
                 binary_string = Binary.GET.Format(string,"comment")
+            elif "/dms/image" in string:
+                if "profile-displayphoto" in string:
+                    param = "Profile-Picture"
+                elif "company-logo" in string:
+                    param = "Company-Logo"
+                else:
+                    param = "Image"
+                user = ""
+                formatted = Binary.GET.Format(string,"image")
             else:
                 param = "Activity"
                 binary_string = Binary.GET.Format(string,"other")
             try:
-                formatted = Decimal.GET.Formatted(binary_string)
+                if param != "Image" and param != "Profile-Picture" and param != "Company-Logo":
+                    formatted = Decimal.GET.Formatted(binary_string)
                 converted = Timestamp.GET.Date(formatted)
                 if timeline == "True":
                     users.append(user)
                     conversions.append(converted)
                     types.append(param)
-                if user != "":
+                if user != "" and param != "Image" and param != "Profile-Picture" and param != "Company-Logo":
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Author: {} Posted on date: {} GMT+2".format(param,Colors.Color.GREEN + user + Colors.Color.WHITE,Colors.Color.GREEN + converted))
+                elif param == "Profile-Picture" or param == "Company-Logo":
+                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Added on date: {} GMT+2".format(param,Colors.Color.GREEN + converted))
                 else:
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Posted on date: {} GMT+2".format(param,Colors.Color.GREEN + converted))
             except Exception as e:
@@ -71,4 +83,4 @@ class MAIN:
                     else:
                         MAIN.Scan(string,"None","","","")
             except Exception as e:
-                print("\nSomething went wrong: {}".format(str(e)))
+               print("\nSomething went wrong: {}".format(str(e)))
