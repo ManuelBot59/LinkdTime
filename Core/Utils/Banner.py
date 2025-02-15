@@ -35,3 +35,4 @@ class GET_BANNER:
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to clear the screen".format(Colors.Color.GREEN + "Clear" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to create a timeline".format(Colors.Color.GREEN + "timeline" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a default name for each timeline element".format(Colors.Color.GREEN + "--autoname" + Colors.Color.WHITE))
+            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to convert the date in a specific timezone (Default GMT+2:00)".format(Colors.Color.GREEN + "--timezone" + Colors.Color.WHITE))
