@@ -18,7 +18,6 @@ class GET:
                 count_char = second.count("-")
                 if count_char >= 1:
                     second = second.rsplit("-",count_char)[0]
-                print(second)
             elif type == "comment":
                 count = string.count("fsd_comment%3A%28")
                 first = string.split("fsd_comment%3A%28",count)
