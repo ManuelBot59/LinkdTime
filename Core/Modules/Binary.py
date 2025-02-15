@@ -12,7 +12,7 @@ class GET:
                 string = string.replace("_","")
                 if "activity-" in string:
                     first = string.split("activity-")
-                if "ugcPost-":
+                if "ugcPost-" in string:
                     first = string.split("ugcPost-")
                 second = first[1].rsplit("-",1)[0].lstrip().rstrip()
                 count_char = second.count("-")
