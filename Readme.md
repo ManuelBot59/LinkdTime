@@ -45,7 +45,7 @@ python3 main.py
 | `Company-Logo Changes`
 
 ## Date Format Configuration:
-**For Changing the displayed dateformat you can change it on the file Configuration/Configuration.ini (Default value is the European format)**
+**For Changing the displayed date format you can change it on the file Configuration/Configuration.ini (Default value is the European format)**
 
 | Name  | Description | Format |
 | -------------| ------------- |--------|
