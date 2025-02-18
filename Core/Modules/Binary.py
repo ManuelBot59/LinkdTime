@@ -11,10 +11,12 @@ class GET:
             if type == "post":
                 string = string.replace("_","")
                 if "activity-" in string:
-                    first = string.split("activity-")
+                    char_count = string.count("activity-")
+                    first = string.split("activity-",char_count)
                 if "ugcPost-" in string:
-                    first = string.split("ugcPost-")
-                second = first[1].rsplit("-",1)[0].lstrip().rstrip()
+                    char_count = string.count("ugcPost-")
+                    first = string.split("ugcPost-",char_count)
+                second = first[char_count].rsplit("-",1)[0].lstrip().rstrip()
                 count_char = second.count("-")
                 if count_char >= 1:
                     second = second.rsplit("-",count_char)[0]
