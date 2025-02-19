@@ -31,10 +31,10 @@ class CREATE:
             f.write("Number° {}\r\n".format(str(j)))
             orig_index = conversion.index(element)
             f.write("Element Title: {}\r\n".format(titles[orig_index]))
-            if users[orig_index] != "":
+            if users[orig_index] != "" and types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
                 f.write("Author: {}\r\n".format(users[orig_index]))
             f.write("Type: {}\r\n".format(types[orig_index]))
-            if types[orig_index] == "Profile-Picture" or type[orig_index] == "Company-Logo":
+            if types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
                 f.write("Added on date: {} {}\r\n".format(element,timezone))
             else:
                 f.write("Posted on date: {} {}\r\n".format(element,timezone))
@@ -86,10 +86,10 @@ class CREATE:
                 print(Colors.Color.BLUE + "[I]" + Colors.Color.WHITE + "Number° {}".format(Colors.Color.GREEN + str(j)))
                 orig_index = conversion.index(element)
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE +  "Element Title: {}".format(Colors.Color.GREEN + titles[orig_index]))
-                if users[orig_index] != "":
+                if users[orig_index] != "" and types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Author: {}".format(Colors.Color.GREEN + users[orig_index]))
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE +  "Type: {}".format(Colors.Color.GREEN + types[orig_index]))
-                if types[orig_index] == "Profile-Picture" or type[orig_index] == "Company-Logo":
+                if types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Added on date: {} {}".format(Colors.Color.GREEN + element + Colors.Color.WHITE,timezone))
                 else:
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Posted on date: {} {}".format(Colors.Color.GREEN + element + Colors.Color.WHITE,timezone))
