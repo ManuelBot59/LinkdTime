@@ -53,7 +53,7 @@ class MAIN:
                     types.append(param)
                 if user != "" and param != "Image" and param != "Profile-Picture" and param != "Company-Logo" and param != "Profile-Background-Image":
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Author: {} Posted on date: {} {}".format(param,Colors.Color.GREEN + user + Colors.Color.WHITE,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
-                elif param == "Profile-Picture" or param == "Company-Logo":
+                elif param == "Profile-Picture" or param == "Company-Logo" or param == "Profile-Background-Image":
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Added on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
                 else:
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Posted on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
