@@ -10,8 +10,9 @@ class GET:
     
     @staticmethod
     def Date(timestamp,timezone):
-        date_format = Format.GET.Date_format()
         timestamp = float(timestamp)
+        date_format = Format.GET.Date_format()
+        orig_format = "%Y-%m-%d %H:%M:%S"
         timestamp = timestamp/1000
         intial = datetime.fromtimestamp(timestamp)
         if timezone != "GMT+2:00":
@@ -29,4 +30,5 @@ class GET:
             elif "-" in timezone:
                 intial = intial - zone
         formatted = intial.strftime(date_format)
-        return formatted
+        or_formatted = intial.strftime(orig_format)
+        return formatted,or_formatted

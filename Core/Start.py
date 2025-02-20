@@ -14,7 +14,7 @@ from Core.Utils import Banner
 class MAIN:
 
     @staticmethod
-    def Scan(string,timeline,users,conversions,types,timezone):
+    def Scan(string,timeline,users,conversions,types,timezone,t_conversions):
         if string.startswith("https://www.linkedin.com") == False and string.startswith("https://media.licdn.com") == False:
             print(Colors.Color.RED + "\n[!]" + Colors.Color.WHITE + "Please insert a Linkedin link")
             MAIN.String(2)
@@ -34,8 +34,6 @@ class MAIN:
                     param = "Profile-Picture"
                 elif "company-logo" in string:
                     param = "Company-Logo"
-                elif "profile-displaybackgroundimage" in string:
-                    param = "Profile-Background-Image"
                 else:
                     param = "Image"
                 user = ""
@@ -44,16 +42,18 @@ class MAIN:
                 param = "Activity"
                 binary_string = Binary.GET.Format(string,"other")
             try:
-                if param != "Image" and param != "Profile-Picture" and param != "Company-Logo" and param != "Profile-Background-Image":
+                if param != "Image" and param != "Profile-Picture" and param != "Company-Logo":
                     formatted = Decimal.GET.Formatted(binary_string)
-                converted = Timestamp.GET.Date(formatted,timezone)
+                converted = Timestamp.GET.Date(formatted,timezone)[0]
+                t_converted = Timestamp.GET.Date(formatted,timezone)[1]
                 if timeline == "True":
                     users.append(user)
                     conversions.append(converted)
+                    t_conversions.append(t_converted)
                     types.append(param)
-                if user != "" and param != "Image" and param != "Profile-Picture" and param != "Company-Logo" and param != "Profile-Background-Image":
+                if user != "" and param != "Image" and param != "Profile-Picture" and param != "Company-Logo":
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Author: {} Posted on date: {} {}".format(param,Colors.Color.GREEN + user + Colors.Color.WHITE,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
-                elif param == "Profile-Picture" or param == "Company-Logo" or param == "Profile-Background-Image":
+                elif param == "Profile-Picture" or param == "Company-Logo":
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Added on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
                 else:
                     print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Posted on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
@@ -89,6 +89,6 @@ class MAIN:
                         timel_name = timel_name + ".txt"
                         Timeline.CREATE.Timeline(folder,timel_name,auto,timezone_n)
                     else:
-                        MAIN.Scan(string,"None","","","",timezone_n)
+                        MAIN.Scan(string,"None","","","",timezone_n,"")
             except Exception as e:
                print("\nSomething went wrong: {}".format(str(e)))
