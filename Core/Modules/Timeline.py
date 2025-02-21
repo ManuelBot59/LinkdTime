@@ -5,6 +5,8 @@
 
 from Core.Utils import Colors
 from Core import Start
+from Core.Utils import Web_Request
+from Core.Utils import Encoder
 from time import sleep
 import datetime
 import os
@@ -124,7 +126,7 @@ class CREATE:
             if users[orig_index] != "" and types[orig_index] != "Profile-Picture" and types[orig_index] != "Company-Logo" and types[orig_index] != "Profile-Background-Image":
                 f.write("Author: {}\r\n".format(users[orig_index]))
             f.write("Type: {}\r\n".format(types[orig_index]))
-            if types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
+            if types[orig_index] == "Profile-Picture" or types[orig_index] == "Company-Logo" or types[orig_index] == "Profile-Background-Image":
                 f.write("Added on date: {} {}\r\n".format(conversion[orig_index],timezone))
             else:
                 f.write("Posted on date: {} {}\r\n".format(conversion[orig_index],timezone))
@@ -134,24 +136,43 @@ class CREATE:
         print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Timeline Saved on: {}".format(Colors.Color.GREEN + str(timel_name)))
     
     @staticmethod
-    def Write_Html_Timeline(users,conversion,ordinated,types,titles,reader,timel_name,fixed_earliest,fixed_latest,timezone,orig_conversion):
+    def Write_Html_Timeline(users,conversion,ordinated,types,titles,reader,timel_name,fixed_earliest,fixed_latest,timezone,orig_conversion,b_64):
         j = 1
+        b = 0
         f = open(timel_name,"a")
         f.write("<div class = 'summary'><p>Earliest Event <font color = '#00ffff'>{} {}</font> Latest Event <font color = '#00ffff'>{} {}</font></p></div>".format(str(fixed_earliest),timezone,str(fixed_latest),timezone))
+        n_element = len(ordinated)
         for element in ordinated:
             f.write("<div class = 'element'>\r\n<div class = 'title'>")
             orig_index = orig_conversion.index(element)
             f.write("<p>Element Title: {}</p>\r\n</div><hr>\r\n<div class = 'user'>".format(titles[orig_index]))
             if users[orig_index] != "" and types[orig_index] != "Profile-Picture" and types[orig_index] != "Company-Logo" and types[orig_index] != "Profile-Background-Image":
-                f.write("<p>Author: {}</p></div><hr>\r\n<div class = 'user'>".format(users[orig_index]))
+              f.write("<p>Author: {}</p></div><hr>\r\n<div class = 'user'>".format(users[orig_index]))
             else:
-                f.write("<p>Author: None</p></div><hr>\r\n<div class = 'user'>")
+              f.write("<p>Author: None</p></div><hr>\r\n<div class = 'user'>")
             f.write("<p>Type: {}</p></div><hr><div class = 'date'>\r\n".format(types[orig_index]))
             if types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
-                f.write("<p>Added on date: {} {}</p>\r\n</div><hr><div class = 'links'>".format(conversion[orig_index],timezone))
+              f.write("<p>Added on date: {} {}</p>\r\n</div><hr><div class = 'links'>".format(conversion[orig_index],timezone))
             else:
-                f.write("<p>Posted on date: {} {}</p>\r\n</div><hr><div class = 'links'>".format(conversion[orig_index],timezone))
-            f.write("<p>Url: <a href = '{}'>Click_Here</a></p>\r\n\n</div></div><div id = 'line'></div>\r\n".format(reader[orig_index].lstrip().rstrip()))
+              f.write("<p>Posted on date: {} {}</p>\r\n</div><hr><div class = 'links'>".format(conversion[orig_index],timezone))
+            if j<n_element:
+              if len(b_64):
+                if types[orig_index] == "Profile-Picture" or types[orig_index] == "Company-Logo" or types[orig_index] == "Profile-Background-Image" or types[orig_index] == "Image":
+                  f.write("<p>Url: <a href = '{}' target = 'blank'>Click_Here</a> Image_Base64: <a href = '{}' target = 'blank'>Click_Here</a></p>\r\n\n</div></div><div id = 'line'></div>\r\n".format(reader[orig_index].lstrip().rstrip(),b_64[b].lstrip().rstrip()))
+                  b = b + 1
+                else:
+                 f.write("<p>Url: <a href = '{}'>Click_Here</a></p>\r\n\n</div></div><div id = 'line'></div>\r\n".format(reader[orig_index].lstrip().rstrip()))
+              else:
+                f.write("<p>Url: <a href = '{}'>Click_Here</a></p>\r\n\n</div></div><div id = 'line'></div>\r\n".format(reader[orig_index].lstrip().rstrip()))
+            else:
+              if len(b_64):
+                if types[orig_index] == "Profile-Picture" or types[orig_index] == "Company-Logo" or types[orig_index] == "Profile-Background-Image" or types[orig_index] == "Image":
+                  f.write("<p>Url: <a href = '{}'  target = 'blank'>Click_Here</a> Image_Base64: <a href = '{}' target = 'blank'>Click_Here</a></p>\r\n\n</div></div>\r\n".format(reader[orig_index].lstrip().rstrip(),b_64[b].lstrip().rstrip()))
+                  b = b + 1
+                else:
+                    f.write("<p>Url: <a href = '{}'>Click_Here</a></p>\r\n\n</div></div>\r\n".format(reader[orig_index].lstrip().rstrip()))
+              else:
+                f.write("<p>Url: <a href = '{}'>Click_Here</a></p>\r\n\n</div></div>\r\n".format(reader[orig_index].lstrip().rstrip()))
             j = j + 1
         f.write("</div></body></html>")
         f.close()
@@ -168,6 +189,9 @@ class CREATE:
         ordinated = []
         types = []
         titles = []
+        links_l = []
+        b_64 = []
+        images = []
         earliest = ""
         t_i = 1
         if os.path.isfile(path):
@@ -209,13 +233,20 @@ class CREATE:
                 if users[orig_index] != "" and types[orig_index] != "Profile-Picture" and types[orig_index] != "Company-Logo" and types[orig_index] != "Profile-Background-Image":
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Author: {}".format(Colors.Color.GREEN + users[orig_index]))
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE +  "Type: {}".format(Colors.Color.GREEN + types[orig_index]))
-                if types[orig_index] == "Profile-Picture" and types[orig_index] == "Company-Logo" and types[orig_index] == "Profile-Background-Image":
+                if types[orig_index] == "Profile-Picture" or types[orig_index] == "Company-Logo" or types[orig_index] == "Profile-Background-Image":
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Added on date: {} {}".format(Colors.Color.GREEN + conversion[orig_index] + Colors.Color.WHITE,timezone))
                 else:
                     print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Posted on date: {} {}".format(Colors.Color.GREEN + conversion[orig_index] + Colors.Color.WHITE,timezone))
                 print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + "Url: {}\n".format(Colors.Color.GREEN + reader[orig_index].lstrip().rstrip()))
+                if "/dms/image" in reader[orig_index]:
+                    images.append(reader[orig_index])
+                    Web_Request.GET.Content(reader[orig_index],links_l)
                 j = j + 1
+            if len(images):
+              for element in images:
+                Web_Request.GET.Content(element,links_l)
+            Encoder.Convert.Get(links_l,b_64)
             CREATE.Write_Timeline(users,conversion,ordinated,types,titles,reader,timel_name,fixed_earliest,fixed_latest,timezone,orig_conversion)
-            CREATE.Write_Html_Timeline(users,conversion,ordinated,types,titles,reader,html,fixed_earliest,fixed_latest,timezone,orig_conversion)
+            CREATE.Write_Html_Timeline(users,conversion,ordinated,types,titles,reader,html,fixed_earliest,fixed_latest,timezone,orig_conversion,b_64)
         else:
             print(Colors.Color.RED + "[!]" + Colors.Color.WHITE + "File: {} not found".format(Colors.Color.GREEN + path + Colors.Color.WHITE)) 
