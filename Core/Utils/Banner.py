@@ -32,7 +32,10 @@ class GET_BANNER:
             print(Colors.Color.PURPLE2 + "|" + Colors.Color.WHITE +
                   " Linkedin:https://www.linkedin.com/in/lucksi" + Colors.Color.PURPLE2 + "      |")
             print(Colors.Color.PURPLE2 + "----------------------------------------------------")
+            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to stop the program".format(Colors.Color.GREEN + "Exit" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to clear the screen".format(Colors.Color.GREEN + "Clear" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to create a timeline".format(Colors.Color.GREEN + "timeline" + Colors.Color.WHITE))
-            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a default name for each timeline element".format(Colors.Color.GREEN + "--autoname" + Colors.Color.WHITE))
+            """print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a default name for each timeline element".format(Colors.Color.GREEN + "--autoname" + Colors.Color.WHITE))
+            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a description for each timeline element".format(Colors.Color.GREEN + "--description" + Colors.Color.WHITE))"""
+            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to see advanced options".format(Colors.Color.GREEN + "help" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to convert the date in a specific timezone (Default GMT+2:00)".format(Colors.Color.GREEN + "--timezone" + Colors.Color.WHITE))

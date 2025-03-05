@@ -1,3 +1,8 @@
+# ORIGINAL CREATOR: Luca Garofalo (Lucksi)
+# AUTHOR: Luca Garofalo (Lucksi)
+# Copyright (C) 2025 Lucksi <lukege287@gmail.com>
+# License: GNU General Public License v3.0
+
 from configparser import ConfigParser
 
 class GET:

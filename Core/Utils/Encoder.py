@@ -10,6 +10,14 @@ class Convert:
     @staticmethod
     def Get(list,encoded_l):
         for element in list:
-            encoded = base64.b64encode(element)
-            enco = "data:image/png;base64, " + str(encoded).replace("b'","").strip("'")
+            if element == "None":
+                enco = "None"
+            else:
+                encoded = base64.b64encode(element)
+                if b"PNG" in element:
+                    enco = "data:image/png;base64, " + str(encoded).replace("b'","").strip("'")
+                elif b"GIF87a" in element or b"GIF89a" in element:
+                    enco = "data:image/gif;base64, " + str(encoded).replace("b'","").strip("'")
+                else:
+                    enco = "data:image/jpg;base64, " + str(encoded).replace("b'","").strip("'")
             encoded_l.append(enco)

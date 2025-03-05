@@ -14,6 +14,15 @@ from Core.Utils import Banner
 class MAIN:
 
     @staticmethod
+    def Options():
+        print(Colors.Color.PURPLE2 + "----------------------------------------------------------------------------------------")
+        print(Colors.Color.PURPLE2 + "|" + Colors.Color.GREEN + "--autoname: " + Colors.Color.WHITE + "Assign a default name for each timeline element 'Timeline only'" + Colors.Color.PURPLE2 + "           |")
+        print(Colors.Color.PURPLE2 + "|" + Colors.Color.GREEN + "--description: " + Colors.Color.WHITE + "Assign a description for each timeline element 'Timeline only'" + Colors.Color.PURPLE2 + "         |")
+        print(Colors.Color.PURPLE2 + "|" + Colors.Color.GREEN + "--save: " + Colors.Color.WHITE + "Save images in base64 format 'Timeline only'" + Colors.Color.PURPLE2 + "                                  |")
+        print(Colors.Color.PURPLE2 + "|" + Colors.Color.GREEN + "--download: " + Colors.Color.WHITE + "Download images 'Timeline only'" + Colors.Color.PURPLE2 + "                                           |")
+        print(Colors.Color.PURPLE2 + "----------------------------------------------------------------------------------------")
+    
+    @staticmethod
     def Scan(string,timeline,users,conversions,types,timezone,t_conversions):
         if string.startswith("https://www.linkedin.com") == False and string.startswith("https://media.licdn.com") == False:
             print(Colors.Color.RED + "\n[!]" + Colors.Color.WHITE + "Please insert a Linkedin link")
@@ -70,12 +79,32 @@ class MAIN:
                 string = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Linkedin Activity Url" + "\n\n" + Colors.Color.PURPLE2 + "[-Link-]" + Colors.Color.WHITE + "-->"))
                 if string == "clear" or string == "Clear" or string == "CLEAR":
                     Banner.GET_BANNER.Banner(1)
+                elif string == "help" or string == "Help" or string == "HELP":
+                    MAIN.Options()
+                elif string == "exit" or string == "Exit" or string == "EXIT":
+                    print("\nProgram stopped\n\n")
+                    exit(0)
                 else:
                     if "--autoname" in string or " --autoname" in string:
                         string = string.replace("--autoname"," --autoname")
                         auto = 1
                     else:
                         auto = 0
+                    if "--description" in string or " --description" in string:
+                        string = string.replace("--description"," --description")
+                        descr = 1
+                    else:
+                        descr = 0
+                    if "--save" in string or " --save" in string:
+                        string = string.replace("--save"," --save")
+                        save = 1
+                    else:
+                        save = 0
+                    if "--download" in string or " --download" in string:
+                        string = string.replace("--download"," --download")
+                        downl = 1
+                    else:
+                        downl = 0
                     if "--timezone" in string or "--timezone" in string:
                         timezone_n = string.split("--timezone",1)[1].split(" ",1)[1].split(" ",1)[0]
                         string = string.replace(" --timezone","--timezone").replace("--timezone","")
@@ -88,8 +117,7 @@ class MAIN:
                             timel_name = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Timeline name" + "\n\n" + Colors.Color.PURPLE2 + "[-Timeline-]" + Colors.Color.WHITE + "-->"))
                         string = string.replace(" timeline","timeline")
                         folder = string.split("timeline",1)[1].split(" ",1)[1].split(" ",1)[0]
-                        timel_name = timel_name + ".txt"
-                        Timeline.CREATE.Timeline(folder,timel_name,auto,timezone_n)
+                        Timeline.CREATE.Timeline(folder,timel_name,auto,timezone_n,descr,save,downl)
                     else:
                         MAIN.Scan(string,"None","","","",timezone_n,"")
             except Exception as e:

@@ -50,17 +50,28 @@ python3 main.py
 | `Comments`
 | `Comments/Replies`
 | `Profile-Pictures Changes`
+| `Background-Images Changes`
 | `Company-Logo Changes`
 
-## Date Format Configuration:
-**For Changing the displayed date format you can change it on the file Configuration/Configuration.ini (Default value is the European format)**
+## Current Features:
+| Feauture list | Require Internet |
+| ------------- | ----------------|
+| `Extracting Activity timestamp`  | False
+| `Create Timelines`|  False
+| `Timezone Change` | False
+| `Saving images in Base64 format (Timelines only)` | True
+| `Download images (Timelines only)`| True
 
-| Name  | Description | Format |
-| -------------| ------------- |--------|
-| `Eu`         | European Date Format | DD/MM/YYYY
-| `Us`         | American Date Format | MM/DD/YYYY
-| `As`         | Asian Date Format     | YYYY/MM/DD
+## Timeline Example:
 
+<img src = "Screenshots/Screenshot_Timeline.png" >
+
+## Configuration:
+| Parameter Name | Values | Default Value |
+| ------------- | ------------- | -------------|
+| `DATE-FORMAT` | Eu/Us/As| Eu |
+| `USER-AGENT` | input string | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36 |
+| `AUTO-DOWNLOAD` | True/False| False |
 
 
 ## Advanced Commands:
@@ -69,7 +80,10 @@ python3 main.py
 | ------------- | ------------- | -------------|
 | `timeline`  | Create a timeline from a group of activities| timeline test.txt |
 | `--autoname`  | Generate a default name for each element in the timeline | timeline test.txt --autoname |
-| `--timezone`  | Set a Timezone for the the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
+| `--description`  | Allows you to insert a description for each element in the timeline | timeline test.txt --description |
+| `--save`  | Allows you to insert a description for each element in the timeline | timeline test.txt --media |
+| `--download`  | Allows you to insert a description for each element in the timeline | timeline test.txt --download |
+| `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
 
 ## Autoname Default element name example:
 ```bash
@@ -80,6 +94,7 @@ Element n°1
 | Format Name | Extension 
 | ------------- | -------------
 | `Text File Format` | txt
+| `Hyper Text Markup Language` | html
 
 
 
