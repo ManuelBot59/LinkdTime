@@ -82,7 +82,7 @@ python3 main.py
 | `--autoname`  | Generate a default name for each element in the timeline | timeline test.txt --autoname |
 | `--description`  | Allows you to insert a description for each element in the timeline | timeline test.txt --description |
 | `--save`  | Allows you to save images in base64 | timeline test.txt --save |
-| `--download`  | Allows you to download images | timeline test.txt --download |
+| `--download`  | Allows you to download images | timeline test.txt --save --download |
 | `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
 
 ## Autoname Default element name example:
