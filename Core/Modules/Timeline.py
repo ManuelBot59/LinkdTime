@@ -353,7 +353,6 @@ class CREATE:
                   image_name = image_fold + "/{}".format(str(f))
                   error = Web_Request.GET.Content(element,links_l,image_name,downl)
                   if error == "None":
-                    #Encoder.Convert.Get(links_l,b_64)
                     print(Colors.Color.BLUE + "[I]" + Colors.Color.WHITE + "Image encoded: success")
                   else:
                     print(Colors.Color.RED + "[!]" + Colors.Color.WHITE + "Image encoded failed : {}".format(error))

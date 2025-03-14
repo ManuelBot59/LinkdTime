@@ -67,11 +67,12 @@ python3 main.py
 <img src = "Screenshots/Screenshot_Timeline.png" >
 
 ## Configuration:
-| Parameter Name | Values | Default Value |
-| ------------- | ------------- | -------------|
-| `DATE-FORMAT` | Eu/Us/As| Eu |
-| `USER-AGENT` | input string | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36 |
-| `AUTO-DOWNLOAD` | True/False| False |
+| Parameter Name | Values | Default Value | Description |
+| ------------- | ------------- | -------------| ------------ |
+| `DATE-FORMAT` | Eu/Us/As| Eu | Date format used ex: '01/01/2025'
+| `USER-AGENT` | input string | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36 | User agent used for downloading images
+| `AUTO-DOWNLOAD` | True/False| False | Auto download for images (Timeline Only)
+| `CLOCK-FORMAT` | 12/24| 24 | Clock format this is used for determine how many hours the clock will have. For the 12 hours clock it will be displayed AM (Morning) or PM (Afternoon)
 
 
 ## Advanced Commands:
@@ -82,7 +83,7 @@ python3 main.py
 | `--autoname`  | Generate a default name for each element in the timeline | timeline test.txt --autoname |
 | `--description`  | Allows you to insert a description for each element in the timeline | timeline test.txt --description |
 | `--save`  | Allows you to save images in base64 | timeline test.txt --save |
-| `--download`  | Allows you to download images | timeline test.txt --save --download |
+| `--download`  |Allows you to download images | timeline test.txt --save --download |
 | `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
 
 ## Autoname Default element name example:
