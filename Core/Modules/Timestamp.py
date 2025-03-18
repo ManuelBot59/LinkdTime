@@ -45,7 +45,9 @@ class GET:
                 count = f_formatted_hour_list.count(".")
                 f_formatted_hour = f_formatted_hour_list.split(".",count)[0]
             formatted = formatted.replace(formatted_hour,str(f_formatted_hour))
-            if int(int_formatted_hour) <=12:
+            if int(int_formatted_hour) < 12:
+                formatted = formatted + " AM"
+            elif int(int_formatted_hour) == 24:
                 formatted = formatted + " AM"
             else:
                 formatted = formatted + " PM"
