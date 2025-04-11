@@ -40,7 +40,7 @@ class GET:
             if int_formatted_hour <= 12:
                 f_formatted_hour = str(formatted_hour)
             else:
-                f_formatted_hour1 = int_formatted_hour/2
+                f_formatted_hour1 = int_formatted_hour-12
                 f_formatted_hour_list = str(f_formatted_hour1)
                 count = f_formatted_hour_list.count(".")
                 f_formatted_hour = f_formatted_hour_list.split(".",count)[0]
