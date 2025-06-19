@@ -2,6 +2,7 @@
 # AUTHOR: Luca Garofalo (Lucksi)
 # Copyright (C) 2025 Lucksi <lukege287@gmail.com>
 # License: GNU General Public License v3.0
+# Fork by Manuel Travezaño — Improvement: Changed the default time zone (GMT+2:00) to automatically detect the system's local time zone.
 
 from Core.Utils import Colors
 from Core.Utils import Clear
@@ -38,4 +39,4 @@ class GET_BANNER:
             """print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a default name for each timeline element".format(Colors.Color.GREEN + "--autoname" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} for assign a description for each timeline element".format(Colors.Color.GREEN + "--description" + Colors.Color.WHITE))"""
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to see advanced options".format(Colors.Color.GREEN + "help" + Colors.Color.WHITE))
-            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to convert the date in a specific timezone (Default GMT+2:00)".format(Colors.Color.GREEN + "--timezone" + Colors.Color.WHITE))
+            print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to convert the date in a specific timezone (Default is local time zone)".format(Colors.Color.GREEN + "--timezone" + Colors.Color.WHITE))

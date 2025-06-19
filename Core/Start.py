@@ -2,6 +2,7 @@
 # AUTHOR: Luca Garofalo (Lucksi)
 # Copyright (C) 2025 Lucksi <lukege287@gmail.com>
 # License: GNU General Public License v3.0
+# Fork by Manuel Travezaño — Improvement: Changed the default time zone (GMT+2:00) to automatically detect the system's local time zone.
 
 from Core.Utils import Colors
 from Core.Utils import Decimal
@@ -55,19 +56,18 @@ class MAIN:
             try:
                 if param != "Image" and param != "Profile-Picture" and param != "Company-Logo" and param != "Background-Image":
                     formatted = Decimal.GET.Formatted(binary_string)
-                converted = Timestamp.GET.Date(formatted,timezone)[0]
-                t_converted = Timestamp.GET.Date(formatted,timezone)[1]
+                converted, t_converted, real_timezone = Timestamp.GET.Date(formatted, timezone)
                 if timeline == "True":
                     users.append(user)
                     conversions.append(converted)
                     t_conversions.append(t_converted)
                     types.append(param)
                 if user != "" and param != "Image" and param != "Profile-Picture" and param != "Company-Logo":
-                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Author: {} Posted on date: {} {}".format(param,Colors.Color.GREEN + user + Colors.Color.WHITE,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
+                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Author: {} Posted on date: {} {}".format(param,Colors.Color.GREEN + user + Colors.Color.WHITE,Colors.Color.GREEN + converted + Colors.Color.WHITE, real_timezone))
                 elif param == "Profile-Picture" or param == "Company-Logo" :
-                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Added on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
+                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Added on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE, real_timezone))
                 else:
-                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Posted on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE,timezone))
+                    print(Colors.Color.PURPLE2 + "\n[v]" + Colors.Color.WHITE + "Linkedin {} Posted on date: {} {}".format(param,Colors.Color.GREEN + converted + Colors.Color.WHITE, real_timezone))
             except Exception as e:
                 print("\nSomething Went Wrong: " + str(e))
     
@@ -77,43 +77,29 @@ class MAIN:
         while True:
             try:
                 string = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Linkedin Activity Url" + "\n\n" + Colors.Color.PURPLE2 + "[-Link-]" + Colors.Color.WHITE + "-->"))
-                if string == "clear" or string == "Clear" or string == "CLEAR":
+                if string.lower() == "clear":
                     Banner.GET_BANNER.Banner(1)
-                elif string == "help" or string == "Help" or string == "HELP":
+                elif string.lower() == "help":
                     MAIN.Options()
-                elif string == "exit" or string == "Exit" or string == "EXIT":
+                elif string.lower() == "exit":
                     print("\nProgram stopped\n\n")
                     exit(0)
                 else:
-                    if "--autoname" in string or " --autoname" in string:
-                        string = string.replace("--autoname"," --autoname")
-                        auto = 1
-                    else:
-                        auto = 0
-                    if "--description" in string or " --description" in string:
-                        string = string.replace("--description"," --description")
-                        descr = 1
-                    else:
-                        descr = 0
-                    if "--save" in string or " --save" in string:
-                        string = string.replace("--save"," --save")
-                        save = 1
-                    else:
-                        save = 0
-                    if "--download" in string or " --download" in string:
-                        string = string.replace("--download"," --download")
-                        downl = 1
-                    else:
-                        downl = 0
-                    if "--timezone" in string or "--timezone" in string:
-                        timezone_n = string.split("--timezone",1)[1].split(" ",1)[1].split(" ",1)[0]
-                        string = string.replace(" --timezone","--timezone").replace("--timezone","")
-                        string = string.replace("{}".format(timezone_n),"")
-                    else:
-                        timezone_n = "GMT+2:00"
-                    if "timeline" in string or " timeline" in string:
+                    auto = "--autoname" in string
+                    descr = "--description" in string
+                    save = "--save" in string
+                    downl = "--download" in string
+                    timezone_n = "auto"
+                    if "--timezone" in string:
+                        try:
+                            timezone_n = string.split("--timezone", 1)[1].split(" ", 1)[1].split(" ", 1)[0]
+                            string = string.replace(" --timezone", "--timezone").replace("--timezone", "")
+                            string = string.replace("{}".format(timezone_n), "")
+                        except:
+                            timezone_n = "auto"
+                    if "timeline" in string:
                         timel_name = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Timeline name" + "\n\n" + Colors.Color.PURPLE2 + "[-Timeline-]" + Colors.Color.WHITE + "-->"))
-                        while timel_name == "" or timel_name == "":
+                        while not timel_name.strip():
                             timel_name = str(input(Colors.Color.GREEN + "\n[+]" + Colors.Color.WHITE + "Insert Timeline name" + "\n\n" + Colors.Color.PURPLE2 + "[-Timeline-]" + Colors.Color.WHITE + "-->"))
                         string = string.replace(" timeline","timeline")
                         folder = string.split("timeline",1)[1].split(" ",1)[1].split(" ",1)[0]
