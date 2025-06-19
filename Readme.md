@@ -13,6 +13,8 @@
 
 **LinkdTime is a Timeline generator for Linkedin it can extract the exact date and time on a single post/comments or activity or generate a Timeline about a list of post/comments or activity**
 
+**Note: This project has been improved from the original project. Improvement: Changed the default time zone (GMT+2:00) to automatically detect the system's local time zone.**
+
 ## Screenshot:
 <img src = "Screenshots/Screenshot.png" >
 
@@ -31,6 +33,7 @@ git clone https://github.com/Lucksi/LinkdTime
 ## Execution:
 ```bash
 cd LinkdTime
+pip install -r requirements.txt
 python3 main.py
 ```
 
@@ -84,7 +87,7 @@ python3 main.py
 | `--description`  | Allows you to insert a description for each element in the timeline | timeline test.txt --description |
 | `--save`  | Allows you to save images in base64 | timeline test.txt --save |
 | `--download`  |Allows you to download images | timeline test.txt --save --download |
-| `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default GMT+2:OO) | timeline test.txt --timezone GMT+4:00 |
+| `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default local time zone) | timeline test.txt --timezone GMT+4:00 |
 
 ## Autoname Default element name example:
 ```bash
