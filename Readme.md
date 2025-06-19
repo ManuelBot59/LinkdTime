@@ -16,8 +16,11 @@
 **Note: This project has been improved from the original project. Improvement: Changed the default time zone (GMT+2:00) to automatically detect the system's local time zone.**
 
 ## Screenshot:
-<img src = "Screenshots/Screenshot.png" >
+**Original project (Time zone GTM+2:00):**
+<img src = "Screenshots/Screenshot2.png" >
 
+**Improved project (Detecting your time zone):**
+<img src = "Screenshots/Screenshot.png" >
 ## Requirements:
 ```
 Python3
