@@ -29,10 +29,17 @@ sudo apt-get update
 sudo apt-get install python3
 sudo apt-get install git
 git clone https://github.com/Lucksi/LinkdTime
+cd LinkdTime
 ```
+
+## Create a virtual environment:
+```bash
+python3.9 -m venv venv                            
+source venv/bin/activate
+```
+
 ## Execution:
 ```bash
-cd LinkdTime
 pip install -r requirements.txt
 python3 main.py
 ```
@@ -99,8 +106,6 @@ Element n°1
 | ------------- | -------------
 | `Text File Format` | txt
 | `Hyper Text Markup Language` | html
-
-
 
 
 ## STARGAZERS OVER TIME 
