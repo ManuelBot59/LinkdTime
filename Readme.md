@@ -68,6 +68,8 @@ python3 main.py
 
 **Note: The good thing is that you can get the date and time even if these posts have been DELETED.**
 
+<img src = "Screenshots/Screenshot3.png" >
+
 ## Current Features:
 | Feauture list | Require Internet |
 | ------------- | ----------------|
@@ -101,10 +103,12 @@ python3 main.py
 | `--download`  |Allows you to download images | timeline test.txt --save --download |
 | `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default local time zone) | timeline test.txt --timezone GMT+4:00 |
 
-## Autoname Default element name example:
-```bash
-Element n°1
-```
+## General usage
+| Method | Notes |
+| - | - |
+| `url direct` | copy and paste the link to the `Posts`, `Comments`, `Comments/Replies`, `Profile-Pictures Changes`, `Background-Images Changes`, `Company-Logo Changes`. (Even if they have been eliminated) |
+| `docker run -it --rm sherlock/sherlock` |    |
+| `dnf install sherlock-project` | |
 
 ## Supported Timelines formats:
 | Format Name | Extension 
@@ -120,6 +124,5 @@ Element n°1
 <br>
 
 ## <p align = center>  ORIGINAL CREATOR: <a href = "https://github.com/Lucksi">LUCA GAROFALO (Lucksi)</a></p>
-
 
 ## <p align = center>LICENSE: GPL-3.0 License <br>COPYRIGHT: (C) 2025 Lucksi  
