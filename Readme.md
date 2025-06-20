@@ -17,10 +17,10 @@
 
 ## Screenshot:
 **Original project (Time zone GTM+2:00):**
-<img src = "Screenshots/Screenshot2.png" >
+<img src = "Screenshots/Screenshot.png" >
 
 **Improved project (Detecting your time zone):**
-<img src = "Screenshots/Screenshot.png" >
+<img src = "Screenshots/Screenshot2.png" >
 ## Requirements:
 ```
 Python3
@@ -65,6 +65,8 @@ python3 main.py
 | `Profile-Pictures Changes`
 | `Background-Images Changes`
 | `Company-Logo Changes`
+
+**Note: The good thing is that you can get the date and time even if these posts have been DELETED.**
 
 ## Current Features:
 | Feauture list | Require Internet |
