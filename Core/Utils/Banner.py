@@ -33,7 +33,7 @@ class GET_BANNER:
             print(Colors.Color.PURPLE2 + "|" + Colors.Color.WHITE +
                   " Linkedin:https://www.linkedin.com/in/lucksi" + Colors.Color.PURPLE2 + "      |")
             print(Colors.Color.PURPLE2 + "|" + Colors.Color.WHITE + " Fork: https://x.com/ManuelBot59" +
-                  Colors.Color.PURPLE2 + "                  |")       
+                  Colors.Color.PURPLE2 + "                  |")      
             print(Colors.Color.PURPLE2 + "----------------------------------------------------")
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to stop the program".format(Colors.Color.GREEN + "Exit" + Colors.Color.WHITE))
             print(Colors.Color.BLUE + "\n[I]" + Colors.Color.WHITE + "Insert {} to clear the screen".format(Colors.Color.GREEN + "Clear" + Colors.Color.WHITE))

@@ -21,7 +21,6 @@
 
 **Improved project (Detecting your time zone):**
 <img src = "Screenshots/Screenshot.png" >
-
 ## Requirements:
 ```
 Python3
