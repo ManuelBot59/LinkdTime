@@ -68,7 +68,7 @@ python3 main.py
 
 ## General usage
 | Method | Notes |
-| - | - |
+| ------------- | ----------------|
 | `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. |
 | `url direct --timezone GMT+0` | Get the date and time of publication but in GMT+0 (United Kingdom, United States) format. |
 
