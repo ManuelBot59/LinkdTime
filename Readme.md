@@ -66,6 +66,11 @@ python3 main.py
 | `Background-Images Changes`
 | `Company-Logo Changes`
 
+## General usage
+| Method | Notes |
+| - | - |
+| `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. |
+
 **Note: The good thing is that you can get the date and time even if these posts have been DELETED.**
 
 <img src = "Screenshots/Screenshot3.png" >
@@ -103,10 +108,6 @@ python3 main.py
 | `--download`  |Allows you to download images | timeline test.txt --save --download |
 | `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default local time zone) | timeline test.txt --timezone GMT+4:00 |
 
-## General usage
-| Method | Notes |
-| - | - |
-| `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. (Even if they have been eliminated) |
 
 ## Supported Timelines formats:
 | Format Name | Extension 
