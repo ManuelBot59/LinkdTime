@@ -70,6 +70,7 @@ python3 main.py
 | Method | Notes |
 | - | - |
 | `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. |
+| `url direct` --timezone GMT+0 | Get the date and time of publication but in GMT+0 (United Kingdom, United States) format. |
 
 **Note: The good thing is that you can get the date and time even if these posts have been DELETED.**
 
@@ -108,6 +109,8 @@ python3 main.py
 | `--download`  |Allows you to download images | timeline test.txt --save --download |
 | `--timezone`  | Set a Timezone for the results (works with timelines and standalone links) (default local time zone) | timeline test.txt --timezone GMT+4:00 |
 
+## Time Zones by Country (GMT Format):
+<img src = "Screenshots/time_zones.png" >
 
 ## Supported Timelines formats:
 | Format Name | Extension 
