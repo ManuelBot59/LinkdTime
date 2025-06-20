@@ -1,23 +1,25 @@
-
-# Archivo: Start.py modificado
-# Este script maneja la detección de zona horaria local y ajusta la hora a UTC-5
-
+import datetime
 import pytz
-from datetime import datetime
-import tzlocal
+from Core.Utils import Colors, Convert
+from Core.Utils import Timestamp
 
-def get_local_time():
-    local_timezone = tzlocal.get_localzone()
-    now = datetime.now(local_timezone)
-    return now.strftime('%Y-%m-%d %H:%M:%S'), str(local_timezone)
+def Scan(link, printable, users, conversion, types, timezone, orig_conversion):
+    timestamp = Timestamp.GET.Timestamp(link)
+    if timestamp == "None":
+        print(Colors.Color.RED + "[!]" + Colors.Color.WHITE + "Timestamp Not Found")
+        conversion.append("Unknown")
+        orig_conversion.append("Unknown")
+    else:
+        local_datetime = Convert.To_Local_Zone(timestamp)
+        timezone_str = local_datetime.strftime('%Z')
+        offset_str = Convert.Get_UTC_Offset(local_datetime)
+        tz_display = f"{local_datetime.tzinfo} ({offset_str})"
 
-def convert_to_utc_offset(tz_name):
-    tz = pytz.timezone(tz_name)
-    now = datetime.now(tz)
-    offset = now.utcoffset().total_seconds() / 3600
-    return f"UTC{offset:+.0f}"
+        print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + f"Timestamp Found: {timestamp}")
+        print(Colors.Color.GREEN + "[+]" + Colors.Color.WHITE + f"Converted Time: {local_datetime} {tz_display}")
 
-if __name__ == '__main__':
-    local_time, tz_name = get_local_time()
-    offset = convert_to_utc_offset(tz_name)
-    print(f"Hora local: {local_time} ({tz_name} - {offset})")
+        conversion.append(str(local_datetime))
+        orig_conversion.append(timestamp)
+
+    types.append("Post")
+    users.append("Unknown")
