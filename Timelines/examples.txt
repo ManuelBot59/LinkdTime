@@ -1,0 +1,31 @@
+🌍 Time Zones by Country (GMT Format)
+
+| Country                       | Time Zone (Standard)                    | GMT Offset                   |
+| ----------------------------- | --------------------------------------- | ---------------------------- |
+| United Kingdom                | GMT                                     | GMT+0                        |
+| Spain                         | Central European Time (CET)             | GMT+1 *(GMT+2 in summer)*    |
+| France                        | Central European Time (CET)             | GMT+1 *(GMT+2 in summer)*    |
+| Germany                       | Central European Time (CET)             | GMT+1 *(GMT+2 in summer)*    |
+| Italy                         | Central European Time (CET)             | GMT+1 *(GMT+2 in summer)*    |
+| Portugal                      | Western European Time (WET)             | GMT+0 *(GMT+1 in summer)*    |
+| Ireland                       | Greenwich Mean Time (GMT)               | GMT+0 *(GMT+1 in summer)*    |
+| United States (New York)      | Eastern Standard Time (EST)             | GMT-5 *(GMT-4 in summer)*    |
+| United States (Los Angeles)   | Pacific Standard Time (PST)             | GMT-8 *(GMT-7 in summer)*    |
+| Canada (Toronto)              | Eastern Standard Time (EST)             | GMT-5 *(GMT-4 in summer)*    |
+| Mexico (CDMX)                 | Central Standard Time (CST)             | GMT-6 *(GMT-5 in summer)*    |
+| Argentina                     | Argentina Time (ART)                    | GMT-3                        |
+| Brazil (Brasília)             | Brasília Time (BRT)                     | GMT-3 *(some regions GMT-4)* |
+| Colombia                      | Colombia Time (COT)                     | GMT-5                        |
+| Peru                          | Peru Time (PET)                         | GMT-5                        |
+| Chile                         | Chile Standard Time (CLT)               | GMT-4 *(GMT-3 in summer)*    |
+| Venezuela                     | Venezuela Time (VET)                    | GMT-4:30                     |
+| Ecuador                       | Ecuador Time (ECT)                      | GMT-5                        |
+| India                         | India Standard Time (IST)               | GMT+5:30                     |
+| China                         | China Standard Time (CST)               | GMT+8                        |
+| Japan                         | Japan Standard Time (JST)               | GMT+9                        |
+| South Korea                   | Korea Standard Time (KST)               | GMT+9                        |
+| Australia (Sydney)            | Australian Eastern Standard Time (AEST) | GMT+10 *(GMT+11 in summer)*  |
+| South Africa                  | South Africa Standard Time (SAST)       | GMT+2                        |
+| Russia (Moscow)               | Moscow Standard Time (MSK)              | GMT+3                        |
+| Turkey                        | Turkey Time (TRT)                       | GMT+3                        |
+| UAE (Dubai)                   | Gulf Standard Time (GST)                | GMT+4                        |
