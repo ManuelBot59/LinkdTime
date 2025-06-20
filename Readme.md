@@ -67,6 +67,8 @@ python3 main.py
 | `Company-Logo Changes`
 
 ## General usage
+<img src = "Screenshots/examples.png" >
+
 | Method | Notes |
 | ------------- | --------|
 | `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. |
