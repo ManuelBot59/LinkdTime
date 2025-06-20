@@ -106,9 +106,7 @@ python3 main.py
 ## General usage
 | Method | Notes |
 | - | - |
-| `url direct` | copy and paste the link to the `Posts`, `Comments`, `Comments/Replies`, `Profile-Pictures Changes`, `Background-Images Changes`, `Company-Logo Changes`. (Even if they have been eliminated) |
-| `docker run -it --rm sherlock/sherlock` |    |
-| `dnf install sherlock-project` | |
+| `url direct` | copy and paste the link to the Posts, Comments, Comments/Replies, Profile-Pictures Changes, Background-Images Changes, Company-Logo Changes. (Even if they have been eliminated) |
 
 ## Supported Timelines formats:
 | Format Name | Extension 
